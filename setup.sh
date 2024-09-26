@@ -57,6 +57,7 @@ CONFIG_FILE=${CONFIG_FILE:-$DEFAULT_CONFIG_FILE}
 
 # Step 5: Add the bash function
 NL_CMD_FUNCTION=$(cat << 'EOF'
+
 function nlcmd() {
     if [ $# -eq 0 ]; then
         echo "Usage: nlcmd 'your natural language command here'"
