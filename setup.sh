@@ -94,13 +94,12 @@ else
     echo "nlcmd function already exists in $CONFIG_FILE"
 fi
 
-# Step 6: Source the configuration file only if it's the correct shell
+# Step 6: Remind the user to source the configuration file
+echo "Setup complete. Please restart your terminal or run the following command to apply changes:"
 if [[ "$SHELL_TYPE" == "bash" ]]; then
-    source "$HOME/.bashrc"
+    echo "source ~/.bashrc"
 elif [[ "$SHELL_TYPE" == "zsh" ]]; then
-    source "$HOME/.zshrc"
+    echo "source ~/.zshrc"
 else
-    echo "Please manually source your shell configuration file."
+    echo "source your shell configuration file."
 fi
-
-echo "Configuration file sourced. Setup complete."
