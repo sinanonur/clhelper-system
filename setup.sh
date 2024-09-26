@@ -91,11 +91,16 @@ function nlcmd() {
 EOF
 )
 
-if ! grep -q "function nlcmd" "$CONFIG_FILE"; then
-    echo "$NL_CMD_FUNCTION" >> "$CONFIG_FILE"
-    echo "Added nlcmd function to $CONFIG_FILE"
+if [ -n "$CONFIG_FILE" ] && [ -f "$CONFIG_FILE" ]; then
+    if ! grep -q "function nlcmd" "$CONFIG_FILE"; then
+        echo "$NL_CMD_FUNCTION" >> "$CONFIG_FILE"
+        echo "Added nlcmd function to $CONFIG_FILE"
+    else
+        echo "nlcmd function already exists in $CONFIG_FILE"
+    fi
 else
-    echo "nlcmd function already exists in $CONFIG_FILE"
+    echo "Configuration file not found or not specified. Please check the path and try again."
+    exit 1
 fi
 
 # Step 6: Remind the user to source the configuration file
