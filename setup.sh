@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo Home: $HOME
+echo Shell: $SHELL
+
 # Create a temporary directory
 TEMP_DIR=$(mktemp -d)
 
