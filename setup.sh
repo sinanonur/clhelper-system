@@ -35,21 +35,25 @@ fi
 # Step 3: Set up the model using the modelfile from the temporary directory
 ollama create clhelper -f "$TEMP_DIR/modelfile"
 
-# Step 4: Determine shell type
+# Step 4: Determine shell type and suggest configuration file
 SHELL_TYPE=$(basename "$SHELL")
-CONFIG_FILE=""
+DEFAULT_CONFIG_FILE=""
 
 case "$SHELL_TYPE" in
     bash)
-        CONFIG_FILE="$HOME/.bashrc"
+        DEFAULT_CONFIG_FILE="$HOME/.bashrc"
         ;;
     zsh)
-        CONFIG_FILE="$HOME/.zshrc"
+        DEFAULT_CONFIG_FILE="$HOME/.zshrc"
         ;;
     *)
-        read -p "Enter the path to your shell configuration file: " CONFIG_FILE
+        echo "Unknown shell type. Please specify your shell configuration file."
         ;;
 esac
+
+# Ask the user for the configuration file, with a default suggestion
+read -p "Enter the path to your shell configuration file [default: $DEFAULT_CONFIG_FILE]: " CONFIG_FILE
+CONFIG_FILE=${CONFIG_FILE:-$DEFAULT_CONFIG_FILE}
 
 # Step 5: Add the bash function
 NL_CMD_FUNCTION=$(cat << 'EOF'
@@ -96,10 +100,4 @@ fi
 
 # Step 6: Remind the user to source the configuration file
 echo "Setup complete. Please restart your terminal or run the following command to apply changes:"
-if [[ "$SHELL_TYPE" == "bash" ]]; then
-    echo "source ~/.bashrc"
-elif [[ "$SHELL_TYPE" == "zsh" ]]; then
-    echo "source ~/.zshrc"
-else
-    echo "source your shell configuration file."
-fi
+echo "source $CONFIG_FILE"
