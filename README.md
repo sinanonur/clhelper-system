@@ -5,13 +5,12 @@ This repository contains instructions and files for setting up and using the CLH
 ## Prerequisites
 
 - [Ollama](https://ollama.ai/) installed on your system
-- [gh CLI](https://cli.github.com/) (GitHub Command Line Interface) installed and authenticated
 
 ## Setup
 
 1. Clone this repository:
  ```bash
- git clone https://github.com/yourusername/clhelper-system.git
+ git clone https://github.com/sinanonur/clhelper-system.git
  cd clhelper-system
  ```
 
