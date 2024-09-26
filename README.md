@@ -1,6 +1,20 @@
+Here's the updated README file incorporating the changes with the new `curl-setup.sh` approach for better handling of the setup process:
+
+```markdown
 # CLHelper System
 
 This repository contains instructions and files for setting up and using the CLHelper system, a command-line helper based on the Ollama AI model.
+
+## Usage
+
+Use the `nlcmd` function followed by your natural language command in quotes:
+
+```bash
+nlcmd "create a new directory called test_folder"
+```
+
+The system will generate a bash command, show it to you, and ask for confirmation before executing it.
+
 
 ## Prerequisites
 
@@ -8,15 +22,18 @@ This repository contains instructions and files for setting up and using the CLH
 
 ## Setup
 
-### Method 1: Automated Setup
+### Method 1: Automated Setup with `curl-setup.sh`
 
-You can set up the CLHelper system using an automated script. Run the following command to download and execute the setup script:
+We have provided a dedicated script that downloads and executes the main setup script in a more controlled environment. To set up the CLHelper system automatically, run the following command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sinanonur/clhelper-system/refs/heads/main/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sinanonur/clhelper-system/refs/heads/main/curl-setup.sh | bash
 ```
 
-This script will handle the installation of the CLHelper system, including checking for Ollama, setting up the model, and configuring your shell.
+This script will:
+- Download the main setup script to a temporary location.
+- Run the main setup script in an interactive shell, ensuring proper handling of inputs and environment variables.
+- Clean up any temporary files after execution.
 
 ### Method 2: Manual Setup
 
@@ -72,16 +89,10 @@ This script will handle the installation of the CLHelper system, including check
    source ~/.bashrc  # or source ~/.bash_profile
    ```
 
-## Usage
-
-Use the `nlcmd` function followed by your natural language command in quotes:
-
-```bash
-nlcmd "create a new directory called test_folder"
-```
-
-The system will generate a bash command, show it to you, and ask for confirmation before executing it.
 
 ## Note
 
 Always review the generated command before confirming its execution to ensure it matches your intentions.
+
+
+Let me know if you need further adjustments or additions!
