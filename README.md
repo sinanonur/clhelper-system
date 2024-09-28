@@ -93,6 +93,6 @@ This script will:
 ## Note
 
 Always review the generated command before confirming its execution to ensure it matches your intentions.
-
+*DISCLAIMER*: I accept no responsibility for the commands it generates. Do it where you think it is safe and again always check the commands.
 
 Let me know if you need further adjustments or additions!
