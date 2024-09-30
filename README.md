@@ -1,6 +1,3 @@
-Here's the updated README file incorporating the changes with the new `curl-setup.sh` approach for better handling of the setup process:
-
-```markdown
 # CLHelper System
 
 This repository contains instructions and files for setting up and using the CLHelper system, a command-line helper based on the Ollama AI model.
